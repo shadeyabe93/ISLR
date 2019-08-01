@@ -1,0 +1,35 @@
+---
+title: "K-Means Practice"
+output: html_notebook
+---
+I am practicing K-Means
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+dat1 <- data.frame(x = rnorm(100) + 3, y = rnorm(100) + 3)
+
+dat2 <- data.frame(x = rnorm(100) - 3, y = rnorm(100) - 3)
+
+data.comb <- bind_rows(dat1, dat2)
+```
+
+```{r}
+plot(data.comb)
+```
+
+```{r}
+km <- kmeans(data.comb, centers = 2, nstart = 3)
+
+data3 <- cbind(data.comb, km[1])
+
+data3$cluster <- as.factor(data3$cluster)
+```
+
+
+```{r}
+ggplot(data3, aes(x, y, color = data3$cluster)) +
+  geom_point()
+```

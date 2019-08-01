@@ -1,0 +1,29 @@
+---
+title: "ISLR Chapter 10 Notes"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+## Unsupervised Learning Overview
+
+Does not utilize response values, instead seeks to understand data structures (e.g. clustering of observations based on relationships between variables). Oftern performed as a part of exploratory data analysis.
+
+## 10.2 Principal Component Analysis (PCA)
+
+PCA refers to the process by which principal components (PCs) are computed. PCA is a valuable tool for exploring datasets with a large number of correlated variables. PCA allows us to reduce the number of dimensions in the dataset while retaining a large proportion of the original variance. The first PC of a dataset is an axis (vector? line?) oriented along the direction of the largest single proportion of variance in the dataset. If there are $p$ dimension in the dataset, then PC_1 will typically pass through $p$ dimensions. However, not each of these $p$-dimensions is equally interesting (explains the same proportion of total variance). So a higher proportion of the first PC will be comprised of the more "interesting" dimensions.
+
+The first PC of a set of features $X_1, X_2,..., X_p$ is the normalized linear combination of the features
+
+$$ Z_1 = \phi_{11}X_1+\phi_{21}X_2+...+\phi_{p1}X_p $$
+
+By normalized, we mean that
+
+
+$$ \sum _{j=1}^p \phi_{j1}^2 = 1 $$
+
+The elements $\phi_{11},..., \phi_{p1}$ are referred to as the *loadings* of the PC. The loadings are normalized to prevent there from being an arbitrarily large variance. Together, the loadings of the first PC make up the first PC loading vector, $\phi_1 = (\phi_{11}  \phi_{21}  ... \phi_{p1})^T$. 
+
+
+
